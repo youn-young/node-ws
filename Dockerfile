@@ -1,13 +1,16 @@
 FROM node:20-alpine3.20
 
-WORKDIR /tmp
+WORKDIR /app
 
-COPY index.js index.html package.json ./
+# 1. 复制所有文件，这会包含你新写的 index.html
+COPY . .
 
-EXPOSE 7860
-
-RUN apk update && apk add --no-cache bash openssl curl &&\
-    chmod +x index.js &&\
+# 2. 安装必要组件
+RUN apk update && apk add --no-cache bash openssl curl && \
     npm install
 
+# 3. 设置你的专属域名
+ENV DOMAIN=dogmanwhat-2619face.hf.space
+
+# 4. 启动程序
 CMD ["node", "index.js"]
