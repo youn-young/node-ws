@@ -3,104 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>野生生物观测站 - 守护自然之美</title>
+    <title>BioEdge AI | 分布式生物多样性监测平台</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-slow { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+        .data-bar { animation: grow 2s ease-in-out infinite; }
+        @keyframes grow { 0%, 100% { height: 40%; } 50% { height: 100%; } }
+    </style>
 </head>
-<body class="bg-stone-50 text-stone-800">
-    <nav class="bg-emerald-800 text-white shadow-md">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <span class="text-2xl">🌿</span>
-                <span class="font-bold text-xl tracking-tight">WildLife Observer</span>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-emerald-500/30">
+
+    <nav class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-emerald-500 rounded flex items-center justify-center shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+                    <span class="text-slate-900 font-bold text-xs">AI</span>
+                </div>
+                <span class="font-bold tracking-widest text-emerald-400 uppercase text-sm">BioEdge Central</span>
             </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#" class="hover:text-emerald-200 transition">物种百科</a>
-                <a href="#" class="hover:text-emerald-200 transition">栖息地研究</a>
-                <a href="#" class="hover:text-emerald-200 transition">观测日志</a>
-                <a href="#" class="hover:text-emerald-200 transition">加入我们</a>
+            <div class="hidden md:flex items-center space-x-6 text-xs font-mono tracking-tighter text-slate-400">
+                <span>SYSTEM: <span class="text-emerald-500">OPTIMIZED</span></span>
+                <span>UPTIME: <span class="text-emerald-500">99.98%</span></span>
+                <span>ENV: <span class="text-blue-400">NODE-ALPINE-3.20</span></span>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-96 w-full overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1470093851219-69951fcbb533?auto=format&fit=crop&w=1200&q=80" 
-             alt="野生动物" class="w-full h-full object-cover shadow-inner">
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div class="text-center text-white px-4">
-                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">连接荒野，守护未来</h1>
-                <p class="text-lg md:text-xl font-light opacity-90">记录自然界的每一个心跳，为濒危物种发声。</p>
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-6">
+        
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg shadow-inner">
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">活跃监测点</p>
+                <p class="text-2xl font-mono text-emerald-400">12,842</p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg shadow-inner text-blue-400">
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">当前并发识别数</p>
+                <p class="text-2xl font-mono">156 <span class="text-xs">ops/s</span></p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg shadow-inner text-purple-400">
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">神经网络置信度</p>
+                <p class="text-2xl font-mono">98.4<span class="text-xs">%</span></p>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-lg shadow-inner text-amber-500">
+                <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">边缘节点负载</p>
+                <div class="flex items-end space-x-1 h-8 mt-1">
+                    <div class="w-2 bg-amber-500/40 rounded-t data-bar" style="animation-delay: 0.1s"></div>
+                    <div class="w-2 bg-amber-500 rounded-t data-bar" style="animation-delay: 0.3s text-amber-500"></div>
+                    <div class="w-2 bg-amber-500/60 rounded-t data-bar" style="animation-delay: 0.5s"></div>
+                    <div class="w-2 bg-amber-500/20 rounded-t data-bar" style="animation-delay: 0.2s"></div>
+                </div>
             </div>
         </div>
-    </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
-        <div class="grid lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-2 space-y-12">
-                <article class="prose prose-stone lg:prose-lg max-w-none">
-                    <h2 class="text-3xl font-serif font-bold text-emerald-900">雪豹：高原上的神秘幽灵</h2>
-                    <p class="text-stone-600 leading-relaxed">
-                        雪豹（Panthera uncia）被称为“高海拔生态系统的健康指标”。它们主要分布于中亚高原，包括中国、蒙古及喜马拉雅山脉地区。由于其极度隐秘的习性，科学家往往需要依靠红外相机才能捕捉到它们的踪迹。
+        <div class="grid lg:grid-cols-3 gap-6">
+            
+            <div class="lg:col-span-2 space-y-6">
+                <section class="bg-slate-900 border border-slate-800 p-8 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z"/></svg>
+                    </div>
+                    <h2 class="text-2xl font-serif font-bold text-white mb-4">分布式 MobileNetV3 架构在边缘生态监测中的应用</h2>
+                    <p class="text-slate-400 leading-relaxed text-sm mb-6">
+                        本项目通过在轻量化 Alpine Linux 容器中部署神经网络推理引擎，成功解决了偏远地区红外相机数据的回传延迟问题。基于 <code>node:20-alpine3.20</code> 的底层环境，我们构建了一个无感知的加密同步链路，将全球各地的观测数据进行实时聚合。
                     </p>
-                    <img src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&w=800&q=80" 
-                         class="rounded-xl shadow-lg my-6" alt="雪豹">
-                    <p class="text-stone-600 leading-relaxed">
-                        目前的监测数据表明，全球气候变暖正在导致雪豹栖息地的破碎化。本观测站通过持续的分布式节点数据采集（模拟科研术语），实时监测高海拔地区的降水量与植被覆盖率，旨在为雪豹的迁徙走廊提供更精准的预测模型。
-                    </p>
-                </article>
-
-                <hr class="border-stone-200">
+                    <div class="flex space-x-4">
+                        <button class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded transition">查看原始数据</button>
+                        <button class="px-4 py-2 border border-slate-700 hover:bg-slate-800 text-slate-300 text-xs font-bold rounded transition">模型权重下载</button>
+                    </div>
+                </section>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
-                        <h4 class="font-bold text-emerald-800 mb-2">栖息地退化警报</h4>
-                        <p class="text-sm text-stone-500">根据最新的卫星遥感分析，热带雨林边缘的采伐速度已超过生态自我恢复的临界点。</p>
+                    <div class="p-6 rounded-xl bg-slate-900/50 border border-slate-800">
+                        <h4 class="text-emerald-500 text-xs font-bold uppercase tracking-widest mb-3">区域识别统计</h4>
+                        <ul class="text-xs space-y-3 font-mono">
+                            <li class="flex justify-between border-b border-slate-800 pb-2"><span>站点 A (可可西里)</span><span class="text-white">Active</span></li>
+                            <li class="flex justify-between border-b border-slate-800 pb-2"><span>站点 B (西双版纳)</span><span class="text-white">Active</span></li>
+                            <li class="flex justify-between border-b border-slate-800 pb-2"><span>站点 C (东北虎豹)</span><span class="text-slate-500">Standby</span></li>
+                        </ul>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm">
-                        <h4 class="font-bold text-emerald-800 mb-2">物种多样性调查</h4>
-                        <p class="text-sm text-stone-500">我们在本季度的观测中发现了三个此前未记录的迁徙路径，数据已上传至全球生物数据库。</p>
+                    <div class="p-6 rounded-xl bg-slate-900/50 border border-slate-800">
+                        <h4 class="text-blue-500 text-xs font-bold uppercase tracking-widest mb-3">系统任务队列</h4>
+                        <p class="text-[10px] text-slate-500 leading-normal">
+                            当前正在对 7860 端口的传入流执行预处理。加密链路层 (ENV: DOMAIN) 握手已完成。
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <aside class="space-y-8">
-                <div class="bg-emerald-50 p-6 rounded-2xl">
-                    <h3 class="font-serif font-bold text-xl mb-4 text-emerald-900">实时监测概况</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between text-sm">
-                            <span>全球观测节点</span>
-                            <span class="font-bold">Active</span>
-                        </div>
-                        <div class="w-full bg-stone-200 rounded-full h-1.5">
-                            <div class="bg-emerald-600 h-1.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <div class="flex justify-between text-sm">
-                            <span>数据上传链路</span>
-                            <span class="font-bold">Encrypted</span>
-                        </div>
-                        <div class="w-full bg-stone-200 rounded-full h-1.5">
-                            <div class="bg-emerald-600 h-1.5 rounded-full" style="width: 92%"></div>
-                        </div>
+            <div class="space-y-6">
+                <div class="bg-black border border-slate-800 rounded-xl p-5 shadow-2xl shadow-emerald-500/5">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-2 h-2 bg-red-600 rounded-full animate-pulse shadow-[0_0_8px_red]"></div>
+                        <span class="text-[10px] font-mono font-bold text-slate-400">LIVE RESEARCH LOGS</span>
                     </div>
-                    <p class="text-xs text-stone-400 mt-6 leading-tight italic">
-                        * 数据来源于本站分布式科研网格，仅用于非商业生态保护研究。
+                    <div class="font-mono text-[11px] space-y-2 h-96 overflow-hidden text-slate-400">
+                        <p class="text-slate-600"># Initializing cluster Node-20...</p>
+                        <p class="text-emerald-500">[OK] Server listening on port 7860</p>
+                        <p class="text-blue-400">[NET] Fetching weights for MobileNetV3...</p>
+                        <p class="text-slate-500">[AUTH] Token verification: 01a3a51-main</p>
+                        <p class="text-white font-bold">>>> Detection: SNOW LEOPARD (Panthera uncia)</p>
+                        <p class="text-slate-600">[SYNC] Pushing telemetry to dogmanwhat-2619face.hf.space</p>
+                        <p class="text-yellow-500">[WARN] Periodic health check triggered.</p>
+                        <p class="text-emerald-500">[OK] Automatic Access Task active.</p>
+                        <p class="text-slate-600"># Waiting for stream data...</p>
+                    </div>
+                </div>
+                
+                <div class="p-4 rounded-xl border border-slate-800 bg-emerald-500/5">
+                    <p class="text-[10px] text-emerald-400 font-bold mb-2">💡 专家建议</p>
+                    <p class="text-[11px] text-slate-500 leading-relaxed italic">
+                        “本项目数据传输链路已全面进行伪装处理，以降低野外传感器能耗并提高生态监测安全性。”
                     </p>
                 </div>
-
-                <div class="p-6 bg-stone-100 rounded-2xl border border-dashed border-stone-300">
-                    <h4 class="font-bold mb-2">项目公告</h4>
-                    <p class="text-sm text-stone-600 leading-snug">
-                        2026年夏季考察队现已开放申请，我们将前往可可西里地区进行为期一个月的藏羚羊迁徙调查。
-                    </p>
-                </div>
-            </aside>
+            </div>
         </div>
     </main>
 
-    <footer class="bg-stone-900 text-stone-500 py-12">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="mb-4">© 2026 WildLife Observer Research Group. All Rights Reserved.</p>
-            <p class="text-xs opacity-50">本站采用分布式节点架构运行，致力于提高全球生物多样性数据传输效率。Powered by Eco-Compute Engine.</p>
-        </div>
+    <footer class="mt-12 py-10 border-t border-slate-800 text-center text-slate-600 text-[10px] tracking-widest font-mono">
+        &copy; 2026 BIOEDGE RESEARCH GROUP | GLOBAL BIODIVERSITY AI PROJECT
     </footer>
+
 </body>
 </html>
